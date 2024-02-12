@@ -12,12 +12,13 @@
   </tr>
 
   <% Movie.all.each do |a_movie| %>
+  <% x = Director.where({:id => a_movie.director_id}).at(0)%>
    <tr>
     <td> <%= a_movie.id%> </td>
     <td> <img src="<%= a_movie.image%>" width="300"> </td>
     <td> <%= a_movie.title%> </td>
     <td> <%= a_movie.year%> </td>
-    <td> <%= a_movie.director_id%> </td>
+    ///<td> <%= x.name %> </td>
     <td> <a href="/movies/<%= a_movie.id%>" >Show details</a> </td>
   </tr>
   <% end %>
